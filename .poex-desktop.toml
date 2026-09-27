@@ -1,0 +1,30 @@
+schema_version = 1
+
+[daemon]
+listen_addr = "127.0.0.1:8762"
+token_file = "~/.pony-expres/daemon/token"
+
+[runtime]
+kind = "pony_native"
+mode = "fresh_process"
+command = "poex-lambda"
+args = []
+actor_reusable = false
+
+[granddaddy]
+enabled = true
+command = "erl"
+args = ["-noshell", "-pa", "runtime/ebin", "-s", "poex_granddaddy"]
+
+[cloudflare]
+enabled = false
+command = "cloudflared"
+hostname = ""
+
+[power]
+keep_awake = false
+
+[limits]
+max_parallel_invocations = 8
+idle_freeze_ms = 30000
+idle_reclaim_ms = 120000
