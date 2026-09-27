@@ -1,0 +1,16 @@
+schema_version: ores.compose.v1
+project: pony-expres-desktop
+allow_lazy_start: false
+source:
+  repository: https://github.com/pony-expres/poex-desktop-daemon.git
+  commit: 7460b8e19497682915bd49264a8580475b7e12c1
+  checkout_dir: tmp/dev/poex-desktop-daemon
+services:
+  daemon:
+    runtime: host
+    command: ["cargo", "run", "--release"]
+    healthcheck:
+      command: ["curl", "--fail", "--silent", "http://127.0.0.1:8762/healthz"]
+      interval_ms: 250
+      timeout_ms: 1000
+      retries: 20
