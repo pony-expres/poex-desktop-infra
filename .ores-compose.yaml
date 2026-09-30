@@ -3,7 +3,7 @@ project: pony-expres-desktop
 allow_lazy_start: false
 source:
   repository: https://github.com/pony-expres/poex-desktop-daemon.git
-  commit: 376a268454c2db0e47105ad687031ec55678b6f5
+  commit: dfb3995b1ed574b2db90dccc816afbf3d814e6cc
   checkout_dir: tmp/dev/poex-desktop-daemon
 services:
   daemon:
